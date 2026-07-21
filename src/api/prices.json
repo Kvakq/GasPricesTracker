@@ -1,0 +1,102 @@
+{
+  "data": {
+    "latestPrices": [
+      {
+        "name": "Bensiin 95",
+        "stationId": 244,
+        "address": "Sõpruse pst 155, Tallinn",
+        "displayName": "Neste Sõpruse",
+        "companyName": "Neste",
+        "price": 1.759
+      },
+      {
+        "name": "Bensiin 98",
+        "stationId": 244,
+        "address": "Sõpruse pst 155, Tallinn",
+        "displayName": "Neste Sõpruse",
+        "companyName": "Neste",
+        "price": 1.804
+      },
+      {
+        "name": "Diisel",
+        "stationId": 244,
+        "address": "Sõpruse pst 155, Tallinn",
+        "displayName": "Neste Sõpruse",
+        "companyName": "Neste",
+        "price": 1.709
+      },
+      {
+        "name": "Bensiin 95",
+        "stationId": 245,
+        "address": "Kadaka tee 60, Tallinn",
+        "displayName": "Neste Kadaka",
+        "companyName": "Neste",
+        "price": 1.749
+      },
+      {
+        "name": "Bensiin 98",
+        "stationId": 245,
+        "address": "Kadaka tee 60, Tallinn",
+        "displayName": "Neste Kadaka",
+        "companyName": "Neste",
+        "price": 1.799
+      },
+      {
+        "name": "Diisel",
+        "stationId": 245,
+        "address": "Kadaka tee 60, Tallinn",
+        "displayName": "Neste Kadaka",
+        "companyName": "Neste",
+        "price": 1.699
+      },
+      {
+        "name": "Bensiin 95",
+        "stationId": 246,
+        "address": "Peterburi tee 50, Tallinn",
+        "displayName": "Neste Peterburi",
+        "companyName": "Neste",
+        "price": 1.769
+      },
+      {
+        "name": "Bensiin 98",
+        "stationId": 246,
+        "address": "Peterburi tee 50, Tallinn",
+        "displayName": "Neste Peterburi",
+        "companyName": "Neste",
+        "price": 1.819
+      },
+      {
+        "name": "Diisel",
+        "stationId": 246,
+        "address": "Peterburi tee 50, Tallinn",
+        "displayName": "Neste Peterburi",
+        "companyName": "Neste",
+        "price": 1.719
+      },
+      {
+        "name": "Bensiin 95",
+        "stationId": 300,
+        "address": "Turusilla, Tartu",
+        "displayName": "Neste Tartu",
+        "companyName": "Neste",
+        "price": 1.739
+      },
+      {
+        "name": "Bensiin 98",
+        "stationId": 300,
+        "address": "Turusilla, Tartu",
+        "displayName": "Neste Tartu",
+        "companyName": "Neste",
+        "price": 1.789
+      },
+      {
+        "name": "Diisel",
+        "stationId": 300,
+        "address": "Turusilla, Tartu",
+        "displayName": "Neste Tartu",
+        "companyName": "Neste",
+        "price": 1.689
+      }
+    ]
+  }
+}
