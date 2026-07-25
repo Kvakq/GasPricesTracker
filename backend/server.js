@@ -1,6 +1,12 @@
-// backend/server.js
 import express from 'express';
 import cors from 'cors';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Recreating __dirname in ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = 3000;
@@ -8,52 +14,46 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-// Store prices in server memory
+const dbPath = path.join(__dirname, 'database.json');
 let latestPrices = [];
 
-// 1. GET endpoint for React (Serves current prices to the frontend)
+// Load existing data on startup
+if (fs.existsSync(dbPath)) {
+  const rawData = fs.readFileSync(dbPath, 'utf8');
+  latestPrices = JSON.parse(rawData);
+  console.log(`[INIT] Loaded ${latestPrices.length} stations from database.json`);
+} else {
+  console.log(`[INIT] No database.json found. Starting empty.`);
+}
+
+// 1. GET endpoint for React
 app.get('/api/prices', (req, res) => {
   res.json(latestPrices);
 });
 
-// 2. POST endpoint for n8n (Receives and merges fresh prices)
+// 2. POST endpoint for n8n (Now fully overwrites data!)
 app.post('/api/prices', (req, res) => {
   const newStations = req.body;
   
   if (!newStations || !Array.isArray(newStations)) {
-    return res.status(400).json({ error: 'Invalid data format. Expected an array.' });
+    return res.status(400).json({ error: 'Invalid data format.' });
   }
 
-  // Merge new data with existing data to prevent missing prices
-  newStations.forEach(newStation => {
-    // Check if we already have this station in our memory
-    const existingStationIndex = latestPrices.findIndex(s => s.id === newStation.id);
+  // COMPLETE OVERWRITE: We drop the old data and keep only the fresh 100% snapshot
+  latestPrices = newStations;
 
-    if (existingStationIndex !== -1) {
-      // Station exists! Merge the old prices with the new ones
-      const existingStation = latestPrices[existingStationIndex];
-      
-      latestPrices[existingStationIndex] = {
-        ...existingStation, // Keep existing station info
-        ...newStation,      // Update with any new basic info
-        prices: {
-          ...existingStation.prices, // Keep ALL previously known prices!
-          ...newStation.prices       // Overwrite ONLY the prices that were just updated
-        }
-      };
+  // Save the fresh snapshot to the file
+  fs.writeFile(dbPath, JSON.stringify(latestPrices, null, 2), (err) => {
+    if (err) {
+      console.error('Error saving to database.json:', err);
     } else {
-      // It's a completely new station, just add it to the list
-      latestPrices.push(newStation);
+      console.log(`[${new Date().toLocaleTimeString()}] Overwrote database with ${latestPrices.length} fresh stations!`);
     }
   });
-
-  console.log(`[${new Date().toLocaleTimeString()}] Prices successfully merged from n8n! Total stations: ${latestPrices.length}`);
   
-  res.json({ success: true, message: 'Prices updated and merged' });
+  res.json({ success: true, message: 'Database fully overwritten with fresh data!' });
 });
 
 app.listen(PORT, () => {
   console.log(`Backend server is running on http://localhost:${PORT}`);
-  console.log(`- GET  /api/prices (For React)`);
-  console.log(`- POST /api/prices (For n8n)`);
 });
