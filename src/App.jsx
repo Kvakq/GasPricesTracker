@@ -1,11 +1,22 @@
-// src/App.jsx
+import { useState, useEffect } from 'react';
 import './App.css';
-import StationCard from './components/StationCard'; // Импортируем нашу новую карточку
-import { getFormattedStations } from './utils/formatPrices';
-import rawPricesData from './api/prices.json';
+import StationCard from './components/StationCard';
 
 function App() {
-  const stations = getFormattedStations(rawPricesData);
+  // State to store the list of stations (empty array by default)
+  const [stations, setStations] = useState([]);
+
+  // useEffect runs once when the component mounts to fetch fresh prices
+  useEffect(() => {
+    fetch('http://localhost:3000/api/prices')
+      .then(response => response.json())
+      .then(data => {
+        setStations(data); // Save the fetched data to state
+      })
+      .catch(error => {
+        console.error('Error fetching prices:', error);
+      });
+  }, []);
 
   return (
     <div className="app-container">
@@ -18,13 +29,16 @@ function App() {
           Real-Time Fuel Prices
         </h2>
         
-        {/* Рендерим список карточек */}
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {stations.map(station => (
-            <StationCard key={station.id} station={station} />
-          ))}
-        </div>
-
+        {/* Show loading text if data is not yet available, otherwise render cards */}
+        {stations.length === 0 ? (
+          <p>Loading fresh prices...</p>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {stations.map(station => (
+              <StationCard key={station.id} station={station} />
+            ))}
+          </div>
+        )}
       </main>
     </div>
   );

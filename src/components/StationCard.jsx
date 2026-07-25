@@ -12,7 +12,7 @@ function StationCard({ station }) {
       flexDirection: 'column',
       gap: '1.2rem'
     }}>
-      {/* Верхняя часть: Название, адрес и бейдж компании */}
+      {/* Top section: Station name, address, and company badge */}
       <div style={{ 
         display: 'flex', 
         justifyContent: 'space-between', 
@@ -29,7 +29,7 @@ function StationCard({ station }) {
           </p>
         </div>
         <div style={{
-          background: '#005bea', // Синий цвет, похожий на бренд Neste
+          background: '#005bea',
           color: '#fff',
           padding: '0.3rem 0.8rem',
           borderRadius: '20px',
@@ -40,34 +40,51 @@ function StationCard({ station }) {
         </div>
       </div>
 
-      {/* Нижняя часть: Цены */}
-      <div style={{ display: 'flex', gap: '2rem' }}>
-        {station.prices['Bensiin 95'] && (
-          <div>
-            <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.2rem' }}>95</div>
-            <div style={{ fontSize: '1.4rem', fontWeight: '700', color: '#333' }}>
-              {station.prices['Bensiin 95']} €
-            </div>
-          </div>
-        )}
+      {/* Bottom section: Fuel prices grid */}
+      <div style={{ display: 'flex', gap: '3rem' }}>
         
-        {station.prices['Bensiin 98'] && (
-          <div>
-            <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.2rem' }}>98</div>
-            <div style={{ fontSize: '1.4rem', fontWeight: '700', color: '#333' }}>
-              {station.prices['Bensiin 98']} €
-            </div>
+        {/* Unleaded 95 */}
+        <div>
+          <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.2rem' }}>
+            95
           </div>
-        )}
+          <div style={{ 
+            fontSize: '1.4rem', 
+            fontWeight: '700', 
+            color: station.prices['Bensiin 95'] ? '#333' : '#cccccc' 
+          }}>
+            {station.prices['Bensiin 95'] ? `${station.prices['Bensiin 95']} €` : 'N/A'}
+          </div>
+        </div>
         
-        {station.prices['Diisel'] && (
-          <div>
-            <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.2rem' }}>Diisel</div>
-            <div style={{ fontSize: '1.4rem', fontWeight: '700', color: '#333' }}>
-              {station.prices['Diisel']} €
-            </div>
+        {/* Unleaded 98 */}
+        <div>
+          <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.2rem' }}>
+            98
           </div>
-        )}
+          <div style={{ 
+            fontSize: '1.4rem', 
+            fontWeight: '700', 
+            color: station.prices['Bensiin 98'] ? '#333' : '#cccccc' 
+          }}>
+            {station.prices['Bensiin 98'] ? `${station.prices['Bensiin 98']} €` : 'N/A'}
+          </div>
+        </div>
+        
+        {/* Diesel */}
+        <div>
+          <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.2rem' }}>
+            Diesel
+          </div>
+          <div style={{ 
+            fontSize: '1.4rem', 
+            fontWeight: '700', 
+            color: station.prices['Diisel'] ? '#333' : '#cccccc' 
+          }}>
+            {station.prices['Diisel'] ? `${station.prices['Diisel']} €` : 'N/A'}
+          </div>
+        </div>
+
       </div>
     </div>
   );
