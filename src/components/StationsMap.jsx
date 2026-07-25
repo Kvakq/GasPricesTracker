@@ -1,0 +1,84 @@
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+
+// Fix for default Leaflet marker icons in React/Vite
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
+
+function StationsMap({ stations }) {
+  // Approximate center coordinates of Estonia
+  const estoniaCenter = [58.5953, 25.0136];
+
+  return (
+    <div style={{ 
+      height: '500px', 
+      width: '100%', 
+      borderRadius: '16px', 
+      overflow: 'hidden', 
+      marginBottom: '2rem',
+      border: '1px solid #eaeaea',
+      boxShadow: '0 4px 12px rgba(0,0,0,0.03)'
+    }}>
+      <MapContainer 
+        center={estoniaCenter} 
+        zoom={7} 
+        style={{ height: '100%', width: '100%' }}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+
+        {/* Map through the stations array and create a marker for each */}
+        {stations.map((station) => {
+          // Skip stations that don't have valid coordinates
+          if (!station.lat || !station.lng) return null;
+
+          return (
+            <Marker key={station.id} position={[station.lat, station.lng]}>
+              <Popup>
+                <div style={{ fontFamily: 'sans-serif' }}>
+                  <h3 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a1a1a' }}>
+                    {station.name}
+                  </h3>
+                  <p style={{ margin: '0 0 10px 0', color: '#888', fontSize: '0.85rem' }}>
+                    {station.address}
+                  </p>
+                  
+                  {/* Display prices inside the popup */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.95rem' }}>
+                    {station.prices['Bensiin 95'] && (
+                      <div style={{ display: 'flex', justifyContent: 'space-between', gap: '15px' }}>
+                        <span style={{ color: '#666' }}>95:</span> 
+                        <strong>{station.prices['Bensiin 95']} €</strong>
+                      </div>
+                    )}
+                    {station.prices['Bensiin 98'] && (
+                      <div style={{ display: 'flex', justifyContent: 'space-between', gap: '15px' }}>
+                        <span style={{ color: '#666' }}>98:</span> 
+                        <strong>{station.prices['Bensiin 98']} €</strong>
+                      </div>
+                    )}
+                    {station.prices['Diisel'] && (
+                      <div style={{ display: 'flex', justifyContent: 'space-between', gap: '15px' }}>
+                        <span style={{ color: '#666' }}>Diesel:</span> 
+                        <strong>{station.prices['Diisel']} €</strong>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </Popup>
+            </Marker>
+          );
+        })}
+      </MapContainer>
+    </div>
+  );
+}
+
+export default StationsMap;
