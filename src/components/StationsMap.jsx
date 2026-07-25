@@ -15,15 +15,8 @@ function StationsMap({ stations }) {
   const estoniaCenter = [58.5953, 25.0136];
 
   return (
-    <div style={{ 
-      height: '500px', 
-      width: '100%', 
-      borderRadius: '16px', 
-      overflow: 'hidden', 
-      marginBottom: '2rem',
-      border: '1px solid #eaeaea',
-      boxShadow: '0 4px 12px rgba(0,0,0,0.03)'
-    }}>
+  <div style={{ height: '100%', width: '100%' }}>
+
       <MapContainer 
         center={estoniaCenter} 
         zoom={7} 
