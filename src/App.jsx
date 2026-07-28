@@ -2,21 +2,8 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import StationCard from './components/StationCard';
 import StationsMap from './components/StationsMap';
-
-// ==========================================
-// MATH MAGIC: Calculate distance between two GPS coordinates in kilometers
-// ==========================================
-const calculateDistance = (lat1, lon1, lat2, lon2) => {
-  const R = 6371; // Earth's radius in km
-  const dLat = (lat2 - lat1) * Math.PI / 180;
-  const dLon = (lon2 - lon1) * Math.PI / 180;
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-    Math.sin(dLon / 2) * Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c; 
-};
+import ControlPanel from './components/ControlPanel';
+import { calculateDistance } from './utils/geo';      
 
 function App() {
   const [stations, setStations] = useState([]);
@@ -25,8 +12,6 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState(null); 
   const [highlightedId, setHighlightedId] = useState(null);
-
-  // New State: Store user's actual GPS location
   const [userLocation, setUserLocation] = useState(null);
 
   useEffect(() => {
@@ -36,16 +21,13 @@ function App() {
       .catch(error => console.error('Error fetching prices:', error));
   }, []);
 
-  // ==========================================
-  // GEOLOCATION LOGIC
-  // ==========================================
   const handleFindNearest = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
           setUserLocation({ lat: latitude, lng: longitude });
-          setSortBy('nearest'); // Switch sorting mode to 'nearest'
+          setSortBy('nearest'); 
         },
         (error) => {
           console.error("Error getting location:", error);
@@ -60,57 +42,36 @@ function App() {
   const displayStations = stations
     .filter(station => {
       const term = searchTerm.toLowerCase().trim();
-      
-      // If the search bar is empty, show all stations
       if (!term) return true; 
 
       const name = (station.name || '').toLowerCase();
       const address = (station.address || '').toLowerCase();
       
-      // 1. Extract the city (it usually comes after the last comma in the address)
-      // Example: "Tallinna mnt 55a, Narva" -> city = "narva"
       const parts = address.split(',');
       const city = parts.length > 1 ? parts[parts.length - 1].trim() : '';
 
-      // 2. Exact match for the city (e.g., if the user types exactly "tallinn")
       if (city === term) return true;
 
-      // 3. SMART FILTER for Tallinn specifically:
-      // If the user typed "tallinn", but the actual city is NOT Tallinn (e.g., Narva),
-      // it means the match was found in the street name "Tallinna mnt". We must ignore it!
       if (term === 'tallinn' && city !== 'tallinn') {
-        // We only keep it if the station's actual name contains the word
         return name.includes(term); 
       }
 
-      // 4. Default search (works for partial street names like "smuuli", "peterburi", etc.)
       return name.includes(term) || address.includes(term);
     })
     .sort((a, b) => {
-      // 1. Sort by Distance (if Nearest is active and we have user coords)
       if (sortBy === 'nearest' && userLocation) {
         const distA = calculateDistance(userLocation.lat, userLocation.lng, a.lat, a.lng);
         const distB = calculateDistance(userLocation.lat, userLocation.lng, b.lat, b.lng);
         return distA - distB;
       }
-      
-      // 2. Sort by Price
       if (sortBy === '95') {
-        const priceA = a.prices['Bensiin 95'] || 999;
-        const priceB = b.prices['Bensiin 95'] || 999;
-        return priceA - priceB;
+        return (a.prices['Bensiin 95'] || 999) - (b.prices['Bensiin 95'] || 999);
       }
-
       if (sortBy === '98') {
-        const priceA = a.prices['Bensiin 98'] || 999;
-        const priceB = b.prices['Bensiin 98'] || 999;
-        return priceA - priceB;
+        return (a.prices['Bensiin 98'] || 999) - (b.prices['Bensiin 98'] || 999);
       }
-
       if (sortBy === 'diesel') {
-        const priceA = a.prices['Diisel'] || 999;
-        const priceB = b.prices['Diisel'] || 999;
-        return priceA - priceB;
+        return (a.prices['Diisel'] || 999) - (b.prices['Diisel'] || 999);
       }
       return 0; 
     });
@@ -128,10 +89,7 @@ function App() {
     }, 100);
 
     setHighlightedId(stationId);
-    
-    setTimeout(() => {
-      setHighlightedId(null);
-    }, 2500);
+    setTimeout(() => setHighlightedId(null), 2500);
   };
 
   return (
@@ -162,52 +120,14 @@ function App() {
           
           <div className={`list-panel ${activeTab !== 'list' ? 'hidden' : ''}`}>
             
-            <div className="control-panel">
-              <input
-                type="text"
-                placeholder="Search by city (e.g. Tartu) or street..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="search-input"
-              />
-              
-              <div className="sort-chips">
-                <button 
-                  className={`chip ${sortBy === null ? 'active' : ''}`}
-                  onClick={() => setSortBy(null)}
-                >
-                  All
-                </button>
-
-                <button 
-                  className={`chip ${sortBy === '95' ? 'active' : ''}`}
-                  onClick={() => setSortBy('95')}
-                >
-                  Cheapest 95
-                </button>
-
-                <button 
-                className={`chip ${sortBy === '98' ? 'active' : ''}`}
-                onClick={() => setSortBy('98')}
-                >
-                  Cheapest 98
-                  </button>
-
-                <button 
-                  className={`chip ${sortBy === 'diesel' ? 'active' : ''}`}
-                  onClick={() => setSortBy('diesel')}
-                >
-                  Cheapest Diesel
-                </button>
-                
-                <button 
-                  className={`chip ${sortBy === 'nearest' ? 'active' : ''}`}
-                  onClick={handleFindNearest}
-                >
-                  📍 Nearest
-                </button>
-              </div>
-            </div>
+            {/* HERE IS OUR NEW CLEAN COMPONENT! */}
+            <ControlPanel 
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              sortBy={sortBy}
+              setSortBy={setSortBy}
+              onFindNearest={handleFindNearest}
+            />
             
             <div style={{ marginBottom: '15px', color: 'var(--neste-gray)', fontSize: '0.9rem', fontWeight: 'bold' }}>
               Showing {displayStations.length} stations
