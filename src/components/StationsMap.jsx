@@ -19,6 +19,8 @@ function StationsMap({ stations, onMarkerClick }) {
         center={estoniaCenter} 
         zoom={7} 
         style={{ height: '100%', width: '100%' }}
+        zoomSnap={0.5} 
+        wheelPxPerZoomLevel={100}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'

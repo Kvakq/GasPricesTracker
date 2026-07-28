@@ -56,13 +56,35 @@ function App() {
       alert("Geolocation is not supported by your browser.");
     }
   };
-
+  
   const displayStations = stations
     .filter(station => {
-      const term = searchTerm.toLowerCase();
-      const nameMatch = (station.name || '').toLowerCase().includes(term);
-      const addressMatch = (station.address || '').toLowerCase().includes(term);
-      return nameMatch || addressMatch;
+      const term = searchTerm.toLowerCase().trim();
+      
+      // If the search bar is empty, show all stations
+      if (!term) return true; 
+
+      const name = (station.name || '').toLowerCase();
+      const address = (station.address || '').toLowerCase();
+      
+      // 1. Extract the city (it usually comes after the last comma in the address)
+      // Example: "Tallinna mnt 55a, Narva" -> city = "narva"
+      const parts = address.split(',');
+      const city = parts.length > 1 ? parts[parts.length - 1].trim() : '';
+
+      // 2. Exact match for the city (e.g., if the user types exactly "tallinn")
+      if (city === term) return true;
+
+      // 3. SMART FILTER for Tallinn specifically:
+      // If the user typed "tallinn", but the actual city is NOT Tallinn (e.g., Narva),
+      // it means the match was found in the street name "Tallinna mnt". We must ignore it!
+      if (term === 'tallinn' && city !== 'tallinn') {
+        // We only keep it if the station's actual name contains the word
+        return name.includes(term); 
+      }
+
+      // 4. Default search (works for partial street names like "smuuli", "peterburi", etc.)
+      return name.includes(term) || address.includes(term);
     })
     .sort((a, b) => {
       // 1. Sort by Distance (if Nearest is active and we have user coords)
@@ -78,6 +100,13 @@ function App() {
         const priceB = b.prices['Bensiin 95'] || 999;
         return priceA - priceB;
       }
+
+      if (sortBy === '98') {
+        const priceA = a.prices['Bensiin 98'] || 999;
+        const priceB = b.prices['Bensiin 98'] || 999;
+        return priceA - priceB;
+      }
+
       if (sortBy === 'diesel') {
         const priceA = a.prices['Diisel'] || 999;
         const priceB = b.prices['Diisel'] || 999;
@@ -149,19 +178,28 @@ function App() {
                 >
                   All
                 </button>
+
                 <button 
                   className={`chip ${sortBy === '95' ? 'active' : ''}`}
                   onClick={() => setSortBy('95')}
                 >
                   Cheapest 95
                 </button>
+
+                <button 
+                className={`chip ${sortBy === '98' ? 'active' : ''}`}
+                onClick={() => setSortBy('98')}
+                >
+                  Cheapest 98
+                  </button>
+
                 <button 
                   className={`chip ${sortBy === 'diesel' ? 'active' : ''}`}
                   onClick={() => setSortBy('diesel')}
                 >
                   Cheapest Diesel
                 </button>
-                {/* NEW BUTTON FOR GEOLOCATION */}
+                
                 <button 
                   className={`chip ${sortBy === 'nearest' ? 'active' : ''}`}
                   onClick={handleFindNearest}
