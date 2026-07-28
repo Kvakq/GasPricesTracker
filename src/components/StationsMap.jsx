@@ -2,7 +2,6 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
-// Fix for default Leaflet marker icons in React/Vite
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
@@ -10,30 +9,36 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
-function StationsMap({ stations }) {
-  // Approximate center coordinates of Estonia
+// Added 'onMarkerClick' to the component props
+function StationsMap({ stations, onMarkerClick }) {
   const estoniaCenter = [58.5953, 25.0136];
 
   return (
-  <div style={{ height: '100%', width: '100%' }}>
-
+    <div style={{ height: '100%', width: '100%' }}>
       <MapContainer 
         center={estoniaCenter} 
         zoom={7} 
         style={{ height: '100%', width: '100%' }}
       >
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {/* Map through the stations array and create a marker for each */}
         {stations.map((station) => {
-          // Skip stations that don't have valid coordinates
           if (!station.lat || !station.lng) return null;
 
           return (
-            <Marker key={station.id} position={[station.lat, station.lng]}>
+            <Marker 
+              key={station.id} 
+              position={[station.lat, station.lng]}
+              // Fire the onMarkerClick function when a user clicks the blue pin
+              eventHandlers={{
+                click: () => {
+                  if (onMarkerClick) onMarkerClick(station.id);
+                }
+              }}
+            >
               <Popup>
                 <div style={{ fontFamily: 'sans-serif' }}>
                   <h3 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a1a1a' }}>
@@ -43,7 +48,6 @@ function StationsMap({ stations }) {
                     {station.address}
                   </p>
                   
-                  {/* Display prices inside the popup */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.95rem' }}>
                     {station.prices['Bensiin 95'] && (
                       <div style={{ display: 'flex', justifyContent: 'space-between', gap: '15px' }}>

@@ -3,13 +3,31 @@ import './App.css';
 import StationCard from './components/StationCard';
 import StationsMap from './components/StationsMap';
 
+// ==========================================
+// MATH MAGIC: Calculate distance between two GPS coordinates in kilometers
+// ==========================================
+const calculateDistance = (lat1, lon1, lat2, lon2) => {
+  const R = 6371; // Earth's radius in km
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c; 
+};
+
 function App() {
   const [stations, setStations] = useState([]);
   const [activeTab, setActiveTab] = useState('list'); 
   
-  // New states for our Control Panel
   const [searchTerm, setSearchTerm] = useState('');
-  const [sortBy, setSortBy] = useState(null); // can be: null, '95', or 'diesel'
+  const [sortBy, setSortBy] = useState(null); 
+  const [highlightedId, setHighlightedId] = useState(null);
+
+  // New State: Store user's actual GPS location
+  const [userLocation, setUserLocation] = useState(null);
 
   useEffect(() => {
     fetch('http://localhost:3000/api/prices')
@@ -19,18 +37,42 @@ function App() {
   }, []);
 
   // ==========================================
-  // CORE LOGIC: Filter and Sort stations dynamically
+  // GEOLOCATION LOGIC
   // ==========================================
+  const handleFindNearest = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setUserLocation({ lat: latitude, lng: longitude });
+          setSortBy('nearest'); // Switch sorting mode to 'nearest'
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+          alert("Please allow location access in your browser to find the nearest station.");
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  };
+
   const displayStations = stations
     .filter(station => {
-      // 1. Search Filter: Check if name or address includes the search text
       const term = searchTerm.toLowerCase();
       const nameMatch = (station.name || '').toLowerCase().includes(term);
       const addressMatch = (station.address || '').toLowerCase().includes(term);
       return nameMatch || addressMatch;
     })
     .sort((a, b) => {
-      // 2. Sort Logic: Push items without prices to the bottom (using 999 as a fake high price)
+      // 1. Sort by Distance (if Nearest is active and we have user coords)
+      if (sortBy === 'nearest' && userLocation) {
+        const distA = calculateDistance(userLocation.lat, userLocation.lng, a.lat, a.lng);
+        const distB = calculateDistance(userLocation.lat, userLocation.lng, b.lat, b.lng);
+        return distA - distB;
+      }
+      
+      // 2. Sort by Price
       if (sortBy === '95') {
         const priceA = a.prices['Bensiin 95'] || 999;
         const priceB = b.prices['Bensiin 95'] || 999;
@@ -41,8 +83,27 @@ function App() {
         const priceB = b.prices['Diisel'] || 999;
         return priceA - priceB;
       }
-      return 0; // Default: No sorting
+      return 0; 
     });
+
+  const handleMarkerClick = (stationId) => {
+    if (window.innerWidth <= 950) {
+      setActiveTab('list');
+    }
+
+    setTimeout(() => {
+      const cardElement = document.getElementById(`station-${stationId}`);
+      if (cardElement) {
+        cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100);
+
+    setHighlightedId(stationId);
+    
+    setTimeout(() => {
+      setHighlightedId(null);
+    }, 2500);
+  };
 
   return (
     <div className="app-container">
@@ -72,9 +133,6 @@ function App() {
           
           <div className={`list-panel ${activeTab !== 'list' ? 'hidden' : ''}`}>
             
-            {/* ==========================================
-                CONTROL PANEL (Search & Chips)
-                ========================================== */}
             <div className="control-panel">
               <input
                 type="text"
@@ -103,6 +161,13 @@ function App() {
                 >
                   Cheapest Diesel
                 </button>
+                {/* NEW BUTTON FOR GEOLOCATION */}
+                <button 
+                  className={`chip ${sortBy === 'nearest' ? 'active' : ''}`}
+                  onClick={handleFindNearest}
+                >
+                  📍 Nearest
+                </button>
               </div>
             </div>
             
@@ -111,16 +176,19 @@ function App() {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              {/* Notice we map over displayStations now, not the raw stations array */}
               {displayStations.map(station => (
-                <StationCard key={station.id} station={station} />
+                <StationCard 
+                  key={station.id} 
+                  station={station} 
+                  id={`station-${station.id}`}
+                  isHighlighted={highlightedId === station.id}
+                />
               ))}
             </div>
           </div>
 
           <div className={`map-panel ${activeTab !== 'map' ? 'hidden' : ''}`}>
-            {/* The map also receives the filtered stations, so markers disappear when you search! */}
-            <StationsMap stations={displayStations} />
+            <StationsMap stations={displayStations} onMarkerClick={handleMarkerClick} />
           </div>
 
         </div>

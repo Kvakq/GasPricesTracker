@@ -1,17 +1,24 @@
-// src/components/StationCard.jsx
-function StationCard({ station }) {
+// We now accept id and isHighlighted as props
+function StationCard({ station, id, isHighlighted }) {
   return (
-    <div style={{
-      background: '#ffffff',
-      border: '1px solid #eaeaea',
-      borderRadius: '16px',
-      padding: '1.5rem',
-      marginBottom: '1rem',
-      boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '1.2rem'
-    }}>
+    <div 
+      id={id} // We attach the ID here so the smart scroll can find it
+      style={{
+        background: '#ffffff',
+        border: '1px solid #eaeaea',
+        borderRadius: '16px',
+        padding: '1.5rem',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1.2rem',
+        // 1. Add smooth transition for the glow effect
+        transition: 'all 0.4s ease', 
+        // 2. Dynamic box-shadow: green glow if highlighted, standard shadow if not
+        boxShadow: isHighlighted 
+          ? 'inset 0 0 0 2px #62bb21, 0 0 20px rgba(98, 187, 33, 0.3)' 
+          : '0 4px 12px rgba(0,0,0,0.03)'
+      }}
+    >
       {/* Top section: Station name, address, and company badge */}
       <div style={{ 
         display: 'flex', 

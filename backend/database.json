@@ -13,16 +13,16 @@
     }
   },
   {
-    "id": 269,
-    "name": "Neste Tartu Ropka",
+    "id": 251,
+    "name": "Neste Põhjapst",
     "company": "Neste",
-    "address": "Võru 244, Tartu",
-    "lat": 58.342931555,
-    "lng": 26.715735425,
+    "address": "Põhja pst 17a, Tallinn",
+    "lat": 59.444472692,
+    "lng": 24.743589538,
     "prices": {
-      "Bensiin 95": 1.789,
-      "Bensiin 98": 1.849,
-      "Diisel": 1.849
+      "Bensiin 95": 1.83,
+      "Bensiin 98": 1.86,
+      "Diisel": 1.89
     }
   },
   {
@@ -34,32 +34,6 @@
     "lng": 27.028422644,
     "prices": {
       "Diisel": 1.614
-    }
-  },
-  {
-    "id": 244,
-    "name": "Neste Sõpruse",
-    "company": "Neste",
-    "address": "Sõpruse pst 155, Tallinn",
-    "lat": 59.412255309,
-    "lng": 24.707651841,
-    "prices": {
-      "Bensiin 95": 1.754,
-      "Bensiin 98": 1.814,
-      "Diisel": 1.869
-    }
-  },
-  {
-    "id": 250,
-    "name": "Neste Merimetsa",
-    "company": "Neste",
-    "address": "Paldiski mnt 54, Tallinn",
-    "lat": 59.42951017,
-    "lng": 24.700290214,
-    "prices": {
-      "Bensiin 95": 1.73,
-      "Bensiin 98": 1.79,
-      "Diisel": 1.774
     }
   },
   {
@@ -76,55 +50,29 @@
     }
   },
   {
-    "id": 246,
-    "name": "Neste Tondi",
+    "id": 282,
+    "name": "Neste Rapla",
     "company": "Neste",
-    "address": "A. H. Tammsaare tee 64a, Tallinn",
-    "lat": 59.402692083,
-    "lng": 24.712754602,
+    "address": "Tallinna mnt 1, Rapla",
+    "lat": 59.01053596,
+    "lng": 24.797399337,
     "prices": {
-      "Bensiin 95": 1.804,
-      "Bensiin 98": 1.864,
-      "Diisel": 1.869
+      "Bensiin 95": 1.809,
+      "Bensiin 98": 1.869,
+      "Diisel": 1.934
     }
   },
   {
-    "id": 255,
-    "name": "Neste Sõpruse 2",
+    "id": 249,
+    "name": "Neste Juhkentali",
     "company": "Neste",
-    "address": "Sõpruse pst 178, Tallinn",
-    "lat": 59.413473909,
-    "lng": 24.707265677,
+    "address": "Juhkentali 37/39, Tallinn",
+    "lat": 59.427332295,
+    "lng": 24.770608413,
     "prices": {
-      "Bensiin 95": 1.77,
-      "Bensiin 98": 1.814,
-      "Diisel": 1.83
-    }
-  },
-  {
-    "id": 235,
-    "name": "Neste Kadaka",
-    "company": "Neste",
-    "address": "Kadaka tee 60, Tallinn",
-    "lat": 59.411564269,
-    "lng": 24.664541455,
-    "prices": {
-      "Bensiin 95": 1.794,
-      "Bensiin 98": 1.854,
-      "Diisel": 1.859
-    }
-  },
-  {
-    "id": 278,
-    "name": "Neste Mäo",
-    "company": "Neste",
-    "address": "Neste Mäo",
-    "lat": 58.900489611,
-    "lng": 25.63572689,
-    "prices": {
-      "Bensiin 95": 1.774,
-      "Bensiin 98": 1.834,
-      "Diisel": 1.929
+      "Bensiin 95": 1.83,
+      "Bensiin 98": 1.89,
+      "Diisel": 1.94
     }
   },
   {
@@ -150,33 +98,33 @@
     "prices": {
       "Bensiin 95": 1.734,
       "Bensiin 98": 1.75,
-      "Diisel": 1.639
+      "Diisel": 1.728
     }
   },
   {
-    "id": 251,
-    "name": "Neste Põhjapst",
+    "id": 247,
+    "name": "Neste Suur-Ameerika A24",
     "company": "Neste",
-    "address": "Põhja pst 17a, Tallinn",
-    "lat": 59.444472692,
-    "lng": 24.743589538,
+    "address": "Suur-Ameerika 49, Tallinn",
+    "lat": 59.4281558,
+    "lng": 24.73153212,
     "prices": {
-      "Bensiin 95": 1.8,
-      "Bensiin 98": 1.86,
-      "Diisel": 1.82
+      "Bensiin 95": 1.799,
+      "Bensiin 98": 1.859,
+      "Diisel": 1.899
     }
   },
   {
-    "id": 286,
-    "name": "Neste Võru A24",
+    "id": 232,
+    "name": "Neste Rocca Al Mare",
     "company": "Neste",
-    "address": "Neste Võru",
-    "lat": 57.835890426,
-    "lng": 27.009636875,
+    "address": "Paldiski mnt 98, Tallinn",
+    "lat": 59.427339554,
+    "lng": 24.660841298,
     "prices": {
-      "Bensiin 95": 1.734,
-      "Bensiin 98": 1.729,
-      "Diisel": 1.797
+      "Bensiin 95": 1.824,
+      "Bensiin 98": 1.789,
+      "Diisel": 1.884
     }
   },
   {
@@ -193,6 +141,71 @@
     }
   },
   {
+    "id": 255,
+    "name": "Neste Sõpruse 2",
+    "company": "Neste",
+    "address": "Sõpruse pst 178, Tallinn",
+    "lat": 59.413473909,
+    "lng": 24.707265677,
+    "prices": {
+      "Bensiin 95": 1.769,
+      "Bensiin 98": 1.839,
+      "Diisel": 1.849
+    }
+  },
+  {
+    "id": 286,
+    "name": "Neste Võru A24",
+    "company": "Neste",
+    "address": "Neste Võru",
+    "lat": 57.835890426,
+    "lng": 27.009636875,
+    "prices": {
+      "Bensiin 95": 1.774,
+      "Bensiin 98": 1.834,
+      "Diisel": 1.843
+    }
+  },
+  {
+    "id": 242,
+    "name": "Neste Pirita A24",
+    "company": "Neste",
+    "address": "Rummu tee 2, Tallinn",
+    "lat": 59.46252061,
+    "lng": 24.8264649,
+    "prices": {
+      "Bensiin 95": 1.824,
+      "Bensiin 98": 1.9,
+      "Diisel": 1.884
+    }
+  },
+  {
+    "id": 243,
+    "name": "Neste Peterburi tee A24",
+    "company": "Neste",
+    "address": "Osmussaare 12, Tallinn",
+    "lat": 59.437181836,
+    "lng": 24.874352697,
+    "prices": {
+      "Bensiin 95": 1.764,
+      "Bensiin 98": 1.824,
+      "Diisel": 1.84
+    }
+  },
+  {
+    "id": 237,
+    "name": "Neste Smuuli A24",
+    "company": "Neste",
+    "address": "Punane 43c, Tallinn",
+    "lat": 59.434609914,
+    "lng": 24.831720665,
+    "prices": {
+      "Bensiin 95": 1.779,
+      "Bensiin 98": 1.839,
+      "Diisel": 1.889
+    }
+  },
+  {
     "id": 275,
     "name": "Neste Narva",
     "company": "Neste",
@@ -203,6 +216,32 @@
       "Bensiin 95": 1.68,
       "Bensiin 98": 1.724,
       "Diisel": 1.539
+    }
+  },
+  {
+    "id": 291,
+    "name": "Neste A24 Sillamäe",
+    "company": "Neste",
+    "address": "Tallinna mnt 9b, Sillamäe",
+    "lat": 59.390910351,
+    "lng": 27.775948177,
+    "prices": {
+      "Bensiin 95": 1.819,
+      "Bensiin 98": 1.914,
+      "Diisel": 1.889
+    }
+  },
+  {
+    "id": 269,
+    "name": "Neste Tartu Ropka",
+    "company": "Neste",
+    "address": "Võru 244, Tartu",
+    "lat": 58.342931555,
+    "lng": 26.715735425,
+    "prices": {
+      "Bensiin 95": 1.769,
+      "Bensiin 98": 1.829,
+      "Diisel": 1.829
     }
   },
   {
@@ -219,17 +258,41 @@
     }
   },
   {
-    "id": 236,
-    "name": "Neste Vesse",
+    "id": 290,
+    "name": "Neste Jõhvi A24",
     "company": "Neste",
-    "address": "Peterburi tee 52, Tallinn",
-    "lat": 59.426774873,
-    "lng": 24.822957565,
+    "address": "Neste Jõhvi",
+    "lat": 59.364686162,
+    "lng": 27.399191648,
     "prices": {
-      "Bensiin 95": 1.814,
-      "Bensiin 98": 1.874,
-      "Diisel": 1.894,
-      "LPG": 0.971
+      "Bensiin 95": 1.774,
+      "Bensiin 98": 1.834,
+      "Diisel": 1.679
+    }
+  },
+  {
+    "id": 285,
+    "name": "Neste Hiiumaa",
+    "company": "Neste",
+    "address": "Neste Hiiumaa",
+    "lat": 58.989230003,
+    "lng": 22.765031109,
+    "prices": {
+      "Bensiin 98": 1.844,
+      "Diisel": 1.954
+    }
+  },
+  {
+    "id": 257,
+    "name": "Neste Peetri",
+    "company": "Neste",
+    "address": "Veesaare tee 2, Peetri",
+    "lat": 59.40168344,
+    "lng": 24.812227132,
+    "prices": {
+      "Bensiin 95": 1.71,
+      "Bensiin 98": 1.77,
+      "Diisel": 1.79
     }
   },
   {
@@ -240,7 +303,7 @@
     "lat": 59.4508224,
     "lng": 24.861109044,
     "prices": {
-      "Bensiin 95": 1.754,
+      "Bensiin 95": 1.834,
       "Bensiin 98": 1.814,
       "Diisel": 1.764
     }
@@ -259,45 +322,6 @@
     }
   },
   {
-    "id": 467,
-    "name": "Neste Ringtee",
-    "company": "Neste",
-    "address": "Lääneringtee 14, Tartu",
-    "lat": 58.375146256,
-    "lng": 26.678530519,
-    "prices": {
-      "Bensiin 95": 1.744,
-      "Bensiin 98": 1.804,
-      "Diisel": 1.794
-    }
-  },
-  {
-    "id": 289,
-    "name": "Neste Haljala",
-    "company": "Neste",
-    "address": "Metsvindi tee 1, Haljala",
-    "lat": 59.424875328,
-    "lng": 26.268563358,
-    "prices": {
-      "Bensiin 95": 1.81,
-      "Bensiin 98": 1.87,
-      "Diisel": 1.87
-    }
-  },
-  {
-    "id": 283,
-    "name": "Neste Rakvere",
-    "company": "Neste",
-    "address": "Laada 24, Rakvere",
-    "lat": 59.345709448,
-    "lng": 26.367129745,
-    "prices": {
-      "Bensiin 95": 1.834,
-      "Bensiin 98": 1.894,
-      "Diisel": 1.9
-    }
-  },
-  {
     "id": 241,
     "name": "Neste Linnamäe",
     "company": "Neste",
@@ -308,19 +332,6 @@
       "Bensiin 95": 1.668,
       "Bensiin 98": 1.874,
       "Diisel": 1.884
-    }
-  },
-  {
-    "id": 231,
-    "name": "Neste Järve",
-    "company": "Neste",
-    "address": "Pärnu mnt 141a, Tallinn",
-    "lat": 59.402122962,
-    "lng": 24.72979834,
-    "prices": {
-      "Bensiin 95": 1.814,
-      "Bensiin 98": 1.809,
-      "Diisel": 1.754
     }
   },
   {
@@ -337,6 +348,32 @@
     }
   },
   {
+    "id": 246,
+    "name": "Neste Tondi",
+    "company": "Neste",
+    "address": "A. H. Tammsaare tee 64a, Tallinn",
+    "lat": 59.402692083,
+    "lng": 24.712754602,
+    "prices": {
+      "Bensiin 95": 1.734,
+      "Bensiin 98": 1.794,
+      "Diisel": 1.774
+    }
+  },
+  {
+    "id": 250,
+    "name": "Neste Merimetsa",
+    "company": "Neste",
+    "address": "Paldiski mnt 54, Tallinn",
+    "lat": 59.42951017,
+    "lng": 24.700290214,
+    "prices": {
+      "Bensiin 95": 1.84,
+      "Bensiin 98": 1.9,
+      "Diisel": 1.95
+    }
+  },
+  {
     "id": 234,
     "name": "Neste Laagri",
     "company": "Neste",
@@ -350,16 +387,17 @@
     }
   },
   {
-    "id": 252,
-    "name": "Neste Ülemiste",
+    "id": 236,
+    "name": "Neste Vesse",
     "company": "Neste",
-    "address": "Suur-Sõjamäe 4/2, Tallinn",
-    "lat": 59.420738224,
-    "lng": 24.791355423,
+    "address": "Peterburi tee 52, Tallinn",
+    "lat": 59.426774873,
+    "lng": 24.822957565,
     "prices": {
-      "Bensiin 95": 1.804,
-      "Bensiin 98": 1.864,
-      "Diisel": 1.874
+      "Bensiin 95": 1.78,
+      "Bensiin 98": 1.84,
+      "Diisel": 1.864,
+      "LPG": 0.971
     }
   },
   {
@@ -376,45 +414,6 @@
     }
   },
   {
-    "id": 232,
-    "name": "Neste Rocca Al Mare",
-    "company": "Neste",
-    "address": "Paldiski mnt 98, Tallinn",
-    "lat": 59.427339554,
-    "lng": 24.660841298,
-    "prices": {
-      "Bensiin 95": 1.729,
-      "Bensiin 98": 1.789,
-      "Diisel": 1.884
-    }
-  },
-  {
-    "id": 247,
-    "name": "Neste Suur-Ameerika A24",
-    "company": "Neste",
-    "address": "Suur-Ameerika 49, Tallinn",
-    "lat": 59.4281558,
-    "lng": 24.73153212,
-    "prices": {
-      "Bensiin 95": 1.719,
-      "Bensiin 98": 1.779,
-      "Diisel": 1.689
-    }
-  },
-  {
-    "id": 242,
-    "name": "Neste Pirita A24",
-    "company": "Neste",
-    "address": "Rummu tee 2, Tallinn",
-    "lat": 59.46252061,
-    "lng": 24.8264649,
-    "prices": {
-      "Bensiin 95": 1.849,
-      "Bensiin 98": 1.894,
-      "Diisel": 1.909
-    }
-  },
-  {
     "id": 272,
     "name": "Neste Riia mnt A24",
     "company": "Neste",
@@ -428,16 +427,15 @@
     }
   },
   {
-    "id": 238,
-    "name": "Neste Sõle",
+    "id": 267,
+    "name": "Neste Tartu Narva mnt",
     "company": "Neste",
-    "address": "Sõle 25a, Tallinn",
-    "lat": 59.438136829,
-    "lng": 24.708282271,
+    "address": "Narva mnt 29, Tartu",
+    "lat": 58.384484915,
+    "lng": 26.726794603,
     "prices": {
-      "Bensiin 95": 1.769,
-      "Bensiin 98": 1.829,
-      "Diisel": 1.839
+      "Bensiin 95": 1.741,
+      "Diisel": 1.879
     }
   },
   {
@@ -461,21 +459,35 @@
     "lat": 58.355809977,
     "lng": 26.722296272,
     "prices": {
-      "Bensiin 95": 1.741,
+      "Bensiin 95": 1.819,
       "Bensiin 98": 1.739,
-      "Diisel": 1.824
+      "Diisel": 1.729
     }
   },
   {
-    "id": 267,
-    "name": "Neste Tartu Narva mnt",
+    "id": 260,
+    "name": "Neste Luige",
     "company": "Neste",
-    "address": "Narva mnt 29, Tartu",
-    "lat": 58.384484915,
-    "lng": 26.726794603,
+    "address": "Neste Luige",
+    "lat": 59.325290065,
+    "lng": 24.768086673,
     "prices": {
-      "Bensiin 95": 1.741,
-      "Diisel": 1.729
+      "Bensiin 95": 1.734,
+      "Bensiin 98": 1.794,
+      "Diisel": 1.894
+    }
+  },
+  {
+    "id": 252,
+    "name": "Neste Ülemiste",
+    "company": "Neste",
+    "address": "Suur-Sõjamäe 4/2, Tallinn",
+    "lat": 59.420738224,
+    "lng": 24.791355423,
+    "prices": {
+      "Bensiin 95": 1.76,
+      "Bensiin 98": 1.824,
+      "Diisel": 1.84
     }
   },
   {
@@ -492,53 +504,81 @@
     }
   },
   {
-    "id": 290,
-    "name": "Neste Jõhvi A24",
+    "id": 467,
+    "name": "Neste Ringtee",
     "company": "Neste",
-    "address": "Neste Jõhvi",
-    "lat": 59.364686162,
-    "lng": 27.399191648,
+    "address": "Lääneringtee 14, Tartu",
+    "lat": 58.375146256,
+    "lng": 26.678530519,
     "prices": {
-      "Bensiin 95": 1.707,
-      "Bensiin 98": 1.729,
-      "Diisel": 1.679
+      "Bensiin 95": 1.76,
+      "Bensiin 98": 1.804,
+      "Diisel": 1.794
     }
   },
   {
-    "id": 291,
-    "name": "Neste A24 Sillamäe",
+    "id": 270,
+    "name": "Neste Turu",
     "company": "Neste",
-    "address": "Tallinna mnt 9b, Sillamäe",
-    "lat": 59.390910351,
-    "lng": 27.775948177,
+    "address": "Kuu 51, Tartu",
+    "lat": 58.366808071,
+    "lng": 26.741133147,
     "prices": {
-      "Bensiin 95": 1.854,
-      "Bensiin 98": 1.914,
-      "Diisel": 1.889
+      "Bensiin 95": 1.675,
+      "Bensiin 98": 1.809,
+      "Diisel": 1.874
     }
   },
   {
-    "id": 262,
-    "name": "Neste Keila D-jaam",
+    "id": 289,
+    "name": "Neste Haljala",
     "company": "Neste",
-    "address": "Keki 1, Keila",
-    "lat": 59.32030697,
-    "lng": 24.39933275,
+    "address": "Metsvindi tee 1, Haljala",
+    "lat": 59.424875328,
+    "lng": 26.268563358,
     "prices": {
-      "Diisel": 1.914
+      "Bensiin 95": 1.82,
+      "Bensiin 98": 1.88,
+      "Diisel": 1.93
     }
   },
   {
-    "id": 233,
-    "name": "Neste Pääsküla",
+    "id": 245,
+    "name": "Neste Männiku",
     "company": "Neste",
-    "address": "Pärnu mnt 453E, Tallinn",
-    "lat": 59.360051235,
-    "lng": 24.630775292,
+    "address": "Männiku tee 99, Tallinn",
+    "lat": 59.375429475,
+    "lng": 24.718388452,
     "prices": {
-      "Bensiin 95": 1.726,
-      "Bensiin 98": 1.786,
-      "Diisel": 1.766
+      "Bensiin 95": 1.824,
+      "Bensiin 98": 1.884,
+      "Diisel": 2.179
+    }
+  },
+  {
+    "id": 238,
+    "name": "Neste Sõle",
+    "company": "Neste",
+    "address": "Sõle 25a, Tallinn",
+    "lat": 59.438136829,
+    "lng": 24.708282271,
+    "prices": {
+      "Bensiin 95": 1.804,
+      "Bensiin 98": 1.864,
+      "Diisel": 1.864
+    }
+  },
+  {
+    "id": 235,
+    "name": "Neste Kadaka",
+    "company": "Neste",
+    "address": "Kadaka tee 60, Tallinn",
+    "lat": 59.411564269,
+    "lng": 24.664541455,
+    "prices": {
+      "Bensiin 95": 1.759,
+      "Bensiin 98": 1.819,
+      "Diisel": 1.824
     }
   },
   {
@@ -551,20 +591,46 @@
     "prices": {
       "Bensiin 95": 1.759,
       "Bensiin 98": 1.694,
-      "Diisel": 1.934
+      "Diisel": 1.924
     }
   },
   {
-    "id": 257,
-    "name": "Neste Peetri",
+    "id": 231,
+    "name": "Neste Järve",
     "company": "Neste",
-    "address": "Veesaare tee 2, Peetri",
-    "lat": 59.40168344,
-    "lng": 24.812227132,
+    "address": "Pärnu mnt 141a, Tallinn",
+    "lat": 59.402122962,
+    "lng": 24.72979834,
     "prices": {
-      "Bensiin 95": 1.769,
-      "Bensiin 98": 1.835,
-      "Diisel": 1.839
+      "Bensiin 95": 1.814,
+      "Bensiin 98": 1.809,
+      "Diisel": 1.914
+    }
+  },
+  {
+    "id": 244,
+    "name": "Neste Sõpruse",
+    "company": "Neste",
+    "address": "Sõpruse pst 155, Tallinn",
+    "lat": 59.412255309,
+    "lng": 24.707651841,
+    "prices": {
+      "Bensiin 95": 1.824,
+      "Bensiin 98": 1.814,
+      "Diisel": 1.884
+    }
+  },
+  {
+    "id": 283,
+    "name": "Neste Rakvere",
+    "company": "Neste",
+    "address": "Laada 24, Rakvere",
+    "lat": 59.345709448,
+    "lng": 26.367129745,
+    "prices": {
+      "Bensiin 95": 1.82,
+      "Bensiin 98": 1.88,
+      "Diisel": 1.93
     }
   },
   {
@@ -581,42 +647,27 @@
     }
   },
   {
-    "id": 282,
-    "name": "Neste Rapla",
+    "id": 278,
+    "name": "Neste Mäo",
     "company": "Neste",
-    "address": "Tallinna mnt 1, Rapla",
-    "lat": 59.01053596,
-    "lng": 24.797399337,
+    "address": "Neste Mäo",
+    "lat": 58.900489611,
+    "lng": 25.63572689,
     "prices": {
-      "Bensiin 95": 1.809,
-      "Bensiin 98": 1.869,
-      "Diisel": 1.869
+      "Bensiin 95": 1.774,
+      "Bensiin 98": 1.834,
+      "Diisel": 1.929
     }
   },
   {
-    "id": 248,
-    "name": "Neste Marja",
+    "id": 253,
+    "name": "Neste Laagna",
     "company": "Neste",
-    "address": "Mustamäe tee 39, Tallinn",
-    "lat": 59.422854628,
-    "lng": 24.69929732,
+    "address": "Ümera 35, Tallinn",
+    "lat": 59.446026577,
+    "lng": 24.897270852,
     "prices": {
-      "Bensiin 95": 1.729,
-      "Bensiin 98": 1.789,
-      "Diisel": 1.909
-    }
-  },
-  {
-    "id": 260,
-    "name": "Neste Luige",
-    "company": "Neste",
-    "address": "Neste Luige",
-    "lat": 59.325290065,
-    "lng": 24.768086673,
-    "prices": {
-      "Bensiin 95": 1.834,
-      "Bensiin 98": 1.799,
-      "Diisel": 1.904
+      "Bensiin 95": 1.834
     }
   },
   {
@@ -633,40 +684,16 @@
     }
   },
   {
-    "id": 245,
-    "name": "Neste Männiku",
+    "id": 233,
+    "name": "Neste Pääsküla",
     "company": "Neste",
-    "address": "Männiku tee 99, Tallinn",
-    "lat": 59.375429475,
-    "lng": 24.718388452,
+    "address": "Pärnu mnt 453E, Tallinn",
+    "lat": 59.360051235,
+    "lng": 24.630775292,
     "prices": {
-      "Bensiin 95": 1.864,
-      "Bensiin 98": 1.924,
-      "Diisel": 1.934
-    }
-  },
-  {
-    "id": 249,
-    "name": "Neste Juhkentali",
-    "company": "Neste",
-    "address": "Juhkentali 37/39, Tallinn",
-    "lat": 59.427332295,
-    "lng": 24.770608413,
-    "prices": {
-      "Bensiin 95": 1.859,
-      "Bensiin 98": 1.919,
-      "Diisel": 1.919
-    }
-  },
-  {
-    "id": 253,
-    "name": "Neste Laagna",
-    "company": "Neste",
-    "address": "Ümera 35, Tallinn",
-    "lat": 59.446026577,
-    "lng": 24.897270852,
-    "prices": {
-      "Bensiin 95": 1.729
+      "Bensiin 95": 1.784,
+      "Bensiin 98": 1.844,
+      "Diisel": 1.854
     }
   },
   {
@@ -696,41 +723,27 @@
     }
   },
   {
-    "id": 285,
-    "name": "Neste Hiiumaa",
+    "id": 262,
+    "name": "Neste Keila D-jaam",
     "company": "Neste",
-    "address": "Neste Hiiumaa",
-    "lat": 58.989230003,
-    "lng": 22.765031109,
+    "address": "Keki 1, Keila",
+    "lat": 59.32030697,
+    "lng": 24.39933275,
     "prices": {
-      "Bensiin 98": 1.939,
-      "Diisel": 1.939
+      "Diisel": 1.959
     }
   },
   {
-    "id": 270,
-    "name": "Neste Turu",
+    "id": 248,
+    "name": "Neste Marja",
     "company": "Neste",
-    "address": "Kuu 51, Tartu",
-    "lat": 58.366808071,
-    "lng": 26.741133147,
+    "address": "Mustamäe tee 39, Tallinn",
+    "lat": 59.422854628,
+    "lng": 24.69929732,
     "prices": {
-      "Bensiin 95": 1.675,
-      "Bensiin 98": 1.809,
-      "Diisel": 1.719
-    }
-  },
-  {
-    "id": 243,
-    "name": "Neste Peterburi tee A24",
-    "company": "Neste",
-    "address": "Osmussaare 12, Tallinn",
-    "lat": 59.437181836,
-    "lng": 24.874352697,
-    "prices": {
-      "Bensiin 95": 1.834,
-      "Bensiin 98": 1.9,
-      "Diisel": 1.839
+      "Bensiin 95": 1.729,
+      "Bensiin 98": 1.789,
+      "Diisel": 1.84
     }
   },
   {
@@ -754,19 +767,6 @@
     "lng": 24.867572053,
     "prices": {
       "Bensiin 98": 2.079
-    }
-  },
-  {
-    "id": 237,
-    "name": "Neste Smuuli A24",
-    "company": "Neste",
-    "address": "Punane 43c, Tallinn",
-    "lat": 59.434609914,
-    "lng": 24.831720665,
-    "prices": {
-      "Bensiin 95": 1.834,
-      "Bensiin 98": 1.814,
-      "Diisel": 1.879
     }
   }
 ]
