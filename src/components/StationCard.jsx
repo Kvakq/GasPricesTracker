@@ -47,7 +47,7 @@ function StationCard({ station, id, isHighlighted }) {
         </div>
       </div>
 
-      {/* Bottom section: Fuel prices grid */}
+      {/* Middle section: Fuel prices grid */}
       <div style={{ display: 'flex', gap: '3rem' }}>
         
         {/* Unleaded 95 */}
@@ -93,6 +93,55 @@ function StationCard({ station, id, isHighlighted }) {
         </div>
 
       </div>
+
+      {/* Bottom section: Navigation buttons */}
+      <div style={{ 
+        display: 'flex', 
+        gap: '10px', 
+        marginTop: '0.5rem',
+        borderTop: '1px solid #f0f0f0',
+        paddingTop: '1rem'
+      }}>
+        <button
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent triggering parent click events
+            window.open(`https://waze.com/ul?ll=${station.lat},${station.lng}&navigate=yes`, '_blank', 'noopener,noreferrer');
+          }}
+          style={{
+            flex: 1,
+            padding: '0.7rem',
+            backgroundColor: '#33ccff', // Waze brand-like color
+            color: '#fff',
+            border: 'none', 
+            cursor: 'pointer', 
+            borderRadius: '10px',
+            fontSize: '0.9rem',
+            fontWeight: '600'
+          }}
+        >
+          Waze
+        </button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent triggering parent click events
+            window.open(`https://www.google.com/maps/dir/?api=1&destination=${station.lat},${station.lng}`, '_blank', 'noopener,noreferrer');
+          }}
+          style={{
+            flex: 1,
+            padding: '0.7rem',
+            backgroundColor: '#34a853', // Google Maps brand-like color
+            color: '#fff',
+            border: 'none', 
+            cursor: 'pointer', 
+            borderRadius: '10px',
+            fontSize: '0.9rem',
+            fontWeight: '600'
+          }}
+        >
+          Google Maps
+        </button>
+      </div>
+
     </div>
   );
 }
