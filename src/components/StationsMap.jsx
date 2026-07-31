@@ -92,28 +92,28 @@ function StationsMap({ stations, onMarkerClick }) {
             >
               <Popup>
                 <div style={{ fontFamily: 'sans-serif' }}>
-                  <h3 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a1a1a' }}>
+                  <h3 style={{ margin: '0 0 5px 0', fontSize: 'var(--station-name-size)', color: '#1a1a1a' }}>
                     {station.name}
                   </h3>
-                  <p style={{ margin: '0 0 10px 0', color: '#888', fontSize: '0.85rem' }}>
+                  <p style={{ margin: '0 0 10px 0', color: '#888', fontSize: 'var(--station-address-size)' }}>
                     {station.address}
                   </p>
                   
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.95rem' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: 'var(--chip-font-size)' }}>
                     {station.prices['Bensiin 95'] && (
-                      <div style={{ display: 'flex', justifyContent: 'space-between', gap: '15px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', gap: 'var(--prices-gap)' }}>
                         <span style={{ color: '#666' }}>95:</span> 
                         <strong>{station.prices['Bensiin 95']} €</strong>
                       </div>
                     )}
                     {station.prices['Bensiin 98'] && (
-                      <div style={{ display: 'flex', justifyContent: 'space-between', gap: '15px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', gap: 'var(--prices-gap)' }}>
                         <span style={{ color: '#666' }}>98:</span> 
                         <strong>{station.prices['Bensiin 98']} €</strong>
                       </div>
                     )}
                     {station.prices['Diisel'] && (
-                      <div style={{ display: 'flex', justifyContent: 'space-between', gap: '15px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', gap: 'var(--prices-gap)' }}>
                         <span style={{ color: '#666' }}>Diesel:</span> 
                         <strong>{station.prices['Diisel']} €</strong>
                       </div>

@@ -7,10 +7,10 @@ function StationCard({ station, id, isHighlighted }) {
         background: '#ffffff',
         border: '1px solid #eaeaea',
         borderRadius: '16px',
-        padding: '1.5rem',
+        padding: 'var(--card-padding)',
         display: 'flex',
         flexDirection: 'column',
-        gap: '1.2rem',
+        gap: 'var(--card-gap)',
         // 1. Add smooth transition for the glow effect
         transition: 'all 0.4s ease', 
         // 2. Dynamic box-shadow: green glow if highlighted, standard shadow if not
@@ -28,10 +28,10 @@ function StationCard({ station, id, isHighlighted }) {
         paddingBottom: '1rem'
       }}>
         <div>
-          <h3 style={{ margin: '0 0 0.4rem 0', color: '#1a1a1a', fontSize: '1.2rem' }}>
+          <h3 style={{ margin: '0 0 0.4rem 0', color: '#1a1a1a', fontSize: 'var(--station-name-size)' }}>
             {station.name}
           </h3>
-          <p style={{ margin: 0, color: '#888', fontSize: '0.9rem' }}>
+          <p style={{ margin: 0, color: '#888', fontSize: 'var(--station-address-size)' }}>
             {station.address}
           </p>
         </div>
@@ -41,22 +41,22 @@ function StationCard({ station, id, isHighlighted }) {
           padding: '0.3rem 0.8rem',
           borderRadius: '20px',
           fontWeight: '600',
-          fontSize: '0.8rem'
+          fontSize: 'var(--price-label-size)'
         }}>
           {station.company}
         </div>
       </div>
 
       {/* Middle section: Fuel prices grid */}
-      <div style={{ display: 'flex', gap: '3rem' }}>
+      <div style={{ display: 'flex', gap: 'var(--prices-gap)' }}>
         
         {/* Unleaded 95 */}
         <div>
-          <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.2rem' }}>
+          <div style={{ fontSize: 'var(--price-label-size)', color: '#666', marginBottom: '0.2rem' }}>
             95
           </div>
           <div style={{ 
-            fontSize: '1.4rem', 
+            fontSize: 'var(--price-size)', 
             fontWeight: '700', 
             color: station.prices['Bensiin 95'] ? '#333' : '#cccccc' 
           }}>
@@ -66,11 +66,11 @@ function StationCard({ station, id, isHighlighted }) {
         
         {/* Unleaded 98 */}
         <div>
-          <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.2rem' }}>
+          <div style={{ fontSize: 'var(--price-label-size)', color: '#666', marginBottom: '0.2rem' }}>
             98
           </div>
           <div style={{ 
-            fontSize: '1.4rem', 
+            fontSize: 'var(--price-size)', 
             fontWeight: '700', 
             color: station.prices['Bensiin 98'] ? '#333' : '#cccccc' 
           }}>
@@ -80,11 +80,11 @@ function StationCard({ station, id, isHighlighted }) {
         
         {/* Diesel */}
         <div>
-          <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.2rem' }}>
+          <div style={{ fontSize: 'var(--price-label-size)', color: '#666', marginBottom: '0.2rem' }}>
             Diesel
           </div>
           <div style={{ 
-            fontSize: '1.4rem', 
+            fontSize: 'var(--price-size)', 
             fontWeight: '700', 
             color: station.prices['Diisel'] ? '#333' : '#cccccc' 
           }}>
@@ -97,7 +97,7 @@ function StationCard({ station, id, isHighlighted }) {
       {/* Bottom section: Navigation buttons */}
       <div style={{ 
         display: 'flex', 
-        gap: '10px', 
+        gap: 'var(--card-bottom-gap)', 
         marginTop: '0.5rem',
         borderTop: '1px solid #f0f0f0',
         paddingTop: '1rem'
@@ -109,13 +109,13 @@ function StationCard({ station, id, isHighlighted }) {
           }}
           style={{
             flex: 1,
-            padding: '0.7rem',
+            padding: 'var(--card-btn-padding)',
             backgroundColor: '#33ccff', // Waze brand-like color
             color: '#fff',
             border: 'none', 
             cursor: 'pointer', 
             borderRadius: '10px',
-            fontSize: '0.9rem',
+            fontSize: 'var(--chip-font-size)',
             fontWeight: '600'
           }}
         >
@@ -128,13 +128,13 @@ function StationCard({ station, id, isHighlighted }) {
           }}
           style={{
             flex: 1,
-            padding: '0.7rem',
+            padding: 'var(--card-btn-padding)',
             backgroundColor: '#34a853', // Google Maps brand-like color
             color: '#fff',
             border: 'none', 
             cursor: 'pointer', 
             borderRadius: '10px',
-            fontSize: '0.9rem',
+            fontSize: 'var(--chip-font-size)',
             fontWeight: '600'
           }}
         >
