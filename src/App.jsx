@@ -129,11 +129,11 @@ function App() {
               onFindNearest={handleFindNearest}
             />
             
-            <div style={{ marginBottom: '15px', color: 'var(--neste-gray)', fontSize: '0.9rem', fontWeight: 'bold' }}>
+            <div style={{ marginBottom: '15px', color: 'var(--neste-gray)', fontSize: 'var(--station-address-size)', fontWeight: 'bold' }}>
               Showing {displayStations.length} stations
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--card-gap)' }}>
               {displayStations.map(station => (
                 <StationCard 
                   key={station.id} 

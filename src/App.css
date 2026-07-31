@@ -5,6 +5,26 @@
   --neste-gray: #b6b9b8;
   --bg-light: #f4f7f6;
   --text-dark: #1a1a1a;
+
+ /* Typographic & spacing tokens (desktop defaults) */
+ --header-size: 1.2rem;
+ --station-name-size: 1.2rem;
+ --station-address-size: 0.9rem;
+ --price-size: 1.4rem;
+ --price-label-size: 0.85rem;
+
+ --card-padding: 1.5rem;
+ --card-gap: 1.2rem;
+ --prices-gap: 3rem;
+ --card-bottom-gap: 10px;
+ --card-btn-padding: 0.7rem;
+
+ --tab-btn-padding: 12px 25px;
+ --tab-btn-font-size: 1rem;
+
+ --search-input-padding: 14px 18px;
+ --chip-padding: 8px 18px;
+ --chip-font-size: 0.9rem;
 }
 
 body {
@@ -30,7 +50,7 @@ body {
   padding: 0.5rem 0 1.5rem 0;
   color: var(--neste-blue);
   font-weight: 800;
-  font-size: 1.2rem;
+ font-size: var(--header-size);
 }
 
 /* =========================================
@@ -74,11 +94,11 @@ body {
 }
 
 .tab-btn {
-  padding: 12px 25px;
+  padding: var(--tab-btn-padding);
   border: 2px solid transparent;
   border-radius: 25px;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: var(--tab-btn-font-size);
   cursor: pointer;
   background-color: white;
   color: var(--neste-gray);
@@ -96,6 +116,28 @@ body {
    MOBILE: Phone/Tablet view (up to 950px)
    ========================================= */
 @media (max-width: 950px) { /* <-- Changed from 800px to 950px for iPad support */
+  /* Reduce typographic tokens for smaller viewports only */
+  :root {
+    --header-size: 1rem;
+    --station-name-size: 1rem;
+    --station-address-size: 0.85rem;
+    --price-size: 1.1rem;
+    --price-label-size: 0.8rem;
+
+    --card-padding: 1rem;
+    --card-gap: 0.7rem;
+    --prices-gap: 1.2rem;
+    --card-bottom-gap: 8px;
+    --card-btn-padding: 0.55rem;
+
+    --tab-btn-padding: 10px 16px;
+    --tab-btn-font-size: 0.95rem;
+
+    --search-input-padding: 10px 12px;
+    --chip-padding: 6px 12px;
+    --chip-font-size: 0.82rem;
+  }
+
   body { overflow: auto; }
   .app-container { height: auto; }
   
@@ -121,7 +163,7 @@ body {
 
 .search-input {
   width: 100%;
-  padding: 14px 18px;
+  padding: var(--search-input-padding);
   border: 1px solid #ddd;
   border-radius: 12px;
   font-size: 1rem;
@@ -142,12 +184,12 @@ body {
 }
 
 .chip {
-  padding: 8px 18px;
+  padding: var(--chip-padding);
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: var(--chip-font-size);
   font-weight: 600;
   color: var(--text-dark);
   transition: all 0.2s ease;
