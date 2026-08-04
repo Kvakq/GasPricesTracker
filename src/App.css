@@ -115,45 +115,6 @@ body {
 }
 
 /* =========================================
-   MOBILE: Phone/Tablet view (up to 950px)
-   ========================================= */
-@media (max-width: 950px) { /* <-- Changed from 800px to 950px for iPad support */
-  /* Reduce typographic tokens for smaller viewports only */
-  :root {
-    --header-size: 1rem;
-    --station-name-size: 1rem;
-    --station-address-size: 0.85rem;
-    --price-size: 1.1rem;
-    --price-label-size: 0.8rem;
-
-    --card-padding: 1rem;
-    --card-gap: 0.7rem;
-    --prices-gap: 1.2rem;
-    --card-bottom-gap: 8px;
-    --card-btn-padding: 0.55rem;
-
-    --tab-btn-padding: 10px 16px;
-    --tab-btn-font-size: 0.95rem;
-
-    --search-input-padding: 10px 12px;
-    --chip-padding: 6px 12px;
-    --chip-font-size: 0.82rem;
-  }
-
-  body { overflow: auto; }
-  .app-container { height: auto; }
-  
-  .mobile-tabs { display: flex; }
-  
-  .content-layout { flex-direction: column; overflow: visible; gap: 15px; }
-  .list-panel, .map-panel { flex: none; width: 100%; padding-right: 0; }
-
-  .map-panel { height: 60vh; }
-
-  .list-panel.hidden, .map-panel.hidden { display: none; }
-}
-
-/* =========================================
    CONTROL PANEL (Search & Sort)
    ========================================= */
 .control-panel {
@@ -203,4 +164,186 @@ body {
   color: white;
   border-color: var(--neste-green);
   box-shadow: 0 4px 10px rgba(98, 187, 33, 0.3);
+}
+
+/* =========================================
+   MOBILE: Phone/Tablet view (up to 950px)
+   ========================================= */
+@media (max-width: 950px) { /* <-- Changed from 800px to 950px for iPad support */
+  /* Reduce typographic tokens for smaller viewports only */
+  :root {
+    --header-size: 1rem;
+    --station-name-size: 1rem;
+    --station-address-size: 0.85rem;
+    --price-size: 1.1rem;
+    --price-label-size: 0.8rem;
+
+    --card-padding: 1rem;
+    --card-gap: 0.7rem;
+    --prices-gap: 1.2rem;
+    --card-bottom-gap: 8px;
+    --card-btn-padding: 0.55rem;
+
+    --tab-btn-padding: 10px 16px;
+    --tab-btn-font-size: 0.95rem;
+
+    --search-input-padding: 10px 12px;
+    --chip-padding: 6px 12px;
+    --chip-font-size: 0.82rem;
+  }
+
+  body { overflow: auto; }
+  .app-container { height: auto; }
+  
+  .mobile-tabs { display: flex; }
+  
+  .content-layout { flex-direction: column; overflow: visible; gap: 15px; }
+  .list-panel, .map-panel { flex: none; width: 100%; padding-right: 0; }
+
+  .map-panel { height: 60vh; }
+
+  .list-panel.hidden, .map-panel.hidden { display: none; }
+}
+
+/* Created isolated worktree for branch `agents/mobile-css-small-screens-adaptation` */
+
+@media (max-width: 480px) {
+  :root {
+    --header-size: 0.85rem;
+    --station-name-size: 0.95rem;
+    --station-address-size: 0.72rem;
+    --price-size: 1rem;
+    --price-label-size: 0.72rem;
+    --card-padding: 0.7rem;
+    --card-gap: 0.5rem;
+    --prices-gap: 0.9rem;
+    --card-bottom-gap: 6px;
+    --card-btn-padding: 0.4rem;
+    --tab-btn-padding: 6px 10px;
+    --tab-btn-font-size: 0.82rem;
+    --search-input-padding: 8px 10px;
+    --chip-padding: 7px 9px;
+    --chip-font-size: 0.72rem;
+    --nav-btn-padding: 6px 8px;
+    --nav-btn-font-size: 0.78rem;
+    --nav-btn-icon-size: 16px;
+  }
+
+  body { overflow: auto; }
+  .app-container { height: auto; }
+
+  /* Mobile tabs - compact, proportional icons + text */
+  .mobile-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-tabs .tab-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: var(--tab-btn-padding);
+    font-size: var(--tab-btn-font-size);
+    line-height: 1;
+    height: 36px;
+    min-width: 64px;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+  .mobile-tabs .tab-btn.active {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  /* Ensure layout stays vertical and compact */
+  .content-layout { flex-direction: column; overflow: visible; gap: 12px; }
+  .list-panel, .map-panel { flex: none; width: 100%; padding-right: 0; }
+  .map-panel { height: 55vh; }
+  .list-panel.hidden, .map-panel.hidden { display: none; }
+
+  /* Station card small-screen scaling */
+  .card {
+    padding: var(--card-padding);
+    gap: var(--card-gap);
+    margin-bottom: var(--card-bottom-gap);
+    box-sizing: border-box;
+  }
+
+  .chip {
+    padding: var(--chip-padding);
+    font-size: var(--chip-font-size);
+  }
+
+  .search-input,
+  input[type="search"] {
+    padding: var(--search-input-padding);
+    font-size: 0.82rem;
+  }
+
+  /* Navigation buttons (Waze / Google Maps) - compact and consistent */
+  /* targets a range of possible class names used for nav buttons so styling applies regardless of exact naming */
+  .station-card .nav-btn,
+  .station-card .nav-button,
+  .nav-btn,
+  .nav-button,
+  .waze-btn,
+  .googlemaps-btn,
+  .google-maps-btn,
+  .maps-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: var(--nav-btn-padding);
+    font-size: var(--nav-btn-font-size);
+    line-height: 1;
+    height: 34px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .station-card .nav-btn img,
+  .nav-btn img,
+  .nav-button img,
+  .waze-btn img,
+  .googlemaps-btn img,
+  .google-maps-btn img,
+  .maps-btn img {
+    width: var(--nav-btn-icon-size);
+    height: var(--nav-btn-icon-size);
+    display: block;
+    flex: none;
+  }
+
+  /* label inside nav button */
+  .station-card .nav-btn .label,
+  .nav-btn .label,
+  .nav-button .label,
+  .waze-btn .label,
+  .googlemaps-btn .label,
+  .google-maps-btn .label {
+    font-size: calc(var(--nav-btn-font-size));
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Small adjustments to avoid oversized text or icons */
+  .price { font-size: var(--price-size); }
+  .price-label { font-size: var(--price-label-size); }
+  .station-name { font-size: var(--station-name-size); }
+  .station-address { font-size: var(--station-address-size); }
+
+  /* Reduce spacing between price elements */
+  .prices { gap: var(--prices-gap); }
+
+  /* ensure buttons inside cards remain clickable and do not wrap oddly */
+  .card .actions { display: flex; gap: 8px; align-items: center; flex-wrap: nowrap; }
 }
