@@ -95,7 +95,7 @@ function App() {
   return (
     <div className="app-container">
       <header className="header">
-        <h1>Neste Gas Prices ⛽️</h1>
+        <h1>Neste Gas Prices</h1>
       </header>
 
       <div className="mobile-tabs">
@@ -103,13 +103,15 @@ function App() {
           className={`tab-btn ${activeTab === 'list' ? 'active' : ''}`}
           onClick={() => setActiveTab('list')}
         >
-          📄 List
+          <img src="/icon-list-24.png" alt="List" style={{ width: 20, height: 20, marginRight: 8 }} />
+          List
         </button>
         <button 
           className={`tab-btn ${activeTab === 'map' ? 'active' : ''}`}
           onClick={() => setActiveTab('map')}
         >
-          🗺️ Map
+          <img src="/icon-map-48.png" alt="Map" style={{ width: 20, height: 20, marginRight: 8 }} />
+          Map
         </button>
       </div>
 

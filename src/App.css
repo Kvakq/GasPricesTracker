@@ -104,6 +104,8 @@ body {
   color: var(--neste-gray);
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
 }
 
 .tab-btn.active {

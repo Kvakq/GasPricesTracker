@@ -116,9 +116,14 @@ function StationCard({ station, id, isHighlighted }) {
             cursor: 'pointer', 
             borderRadius: '10px',
             fontSize: 'var(--chip-font-size)',
-            fontWeight: '600'
+            fontWeight: '600',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.6rem'
           }}
         >
+          <img src="/icon-waze-64.png" alt="Waze" style={{ width: 25, height: 25 }} />
           Waze
         </button>
         <button
@@ -135,9 +140,14 @@ function StationCard({ station, id, isHighlighted }) {
             cursor: 'pointer', 
             borderRadius: '10px',
             fontSize: 'var(--chip-font-size)',
-            fontWeight: '600'
+            fontWeight: '600',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.6rem'
           }}
         >
+          <img src="/icon-google-maps-48.png" alt="Google Maps" style={{ width: 25, height: 25 }} />
           Google Maps
         </button>
       </div>
