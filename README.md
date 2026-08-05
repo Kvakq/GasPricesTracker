@@ -4,7 +4,7 @@ GasPricesTracker is a responsive web application that shows live fuel prices for
 
 ## 🎬 Demo
 
-[![GasPricesTracker Demo](https://img.youtube.com/vi/1VNVmlx97bw/maxresdefault.jpg)](https://www.youtube.com/watch?v=1VNVmlx97bw)
+[▶️ Watch 2-minute project demo on YouTube](https://www.youtube.com/watch?v=1VNVmlx97bw)
 
 Key goals:
 - Make it simple to find the cheapest nearby fuel or a specific station.
