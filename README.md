@@ -2,6 +2,10 @@
 
 GasPricesTracker is a responsive web application that shows live fuel prices for Neste gas stations across Estonia. It helps users quickly find the cheapest fuel (95, 98, or diesel), locate the nearest station, get directions (Waze / Google Maps), and view station-specific price details on a map and in per-station tables.
 
+## 🎬 Demo
+
+[![GasPricesTracker Demo](https://img.youtube.com/vi/1VNVmlx97bw/maxresdefault.jpg)](https://www.youtube.com/watch?v=1VNVmlx97bw)
+
 Key goals:
 - Make it simple to find the cheapest nearby fuel or a specific station.
 - Visualize all stations on a map and provide precise directions and addresses.
